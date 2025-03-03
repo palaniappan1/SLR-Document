@@ -1,0 +1,57 @@
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{soul}
+\usepackage{xspace}
+\soulregister\cite7
+\soulregister\ref7
+
+\definecolor{codegreen}{rgb}{0,0.8,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{grayout}{rgb}{0.5,0.5,0.5}
+\definecolor{colgray}{gray}{0.93}
+\definecolor{highlightcolor}{rgb}{1,1,0.8}
+
+
+
+\newcommand{\grayout}[1]{\textcolor{grayout}{#1}}
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\question}[1]{\textcolor{codegreen}{Question: #1}}
+\newcommand{\eb}[1]{\textcolor{purple}{EB: #1}}
+\newcommand{\palani}[1]{\textcolor{codegreen}{PM: #1}}
+\newcommand{\leen}[1]{\textcolor{red}{LJ: #1}}
+
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{black},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,
+    lineskip=0.5cm,
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\mycomment}[1]{}
+
+
+\def\HiLi{\leavevmode\rlap{\hbox to 0.5\hsize{\color{gray!15}\leaders\hrule height .7\baselineskip depth .5ex\hfill}}}
+\def\HiLiS{\leavevmode\rlap{\hbox to 0.05\hsize{\color{gray!15}\leaders\hrule height .7\baselineskip depth .5ex\hfill}}}
+
+
+\newcommand{\smallblacksquare}{\scalebox{0.6}{$\blacksquare$}}
