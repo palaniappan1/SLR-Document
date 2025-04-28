@@ -1,4 +1,5 @@
-\documentclass[sigconf]{acmart}
+% \documentclass[sigconf]{acmart}
+\documentclass[manuscript]{acmart}
 \include{my_commands}
 
 \AtBeginDocument{%
@@ -8,28 +9,41 @@
 
 \title{Static Analysis Taxonomies}
 
-\author{Ben Trovato}
-\authornote{Both authors contributed equally to this research.}
-\email{trovato@corporation.com}
-\orcid{1234-5678-9012}
-\author{G.K.M. Tobin}
+\author{Palaniappan Muthuraman}
 \authornotemark[1]
-\email{webmaster@marysville-ohio.com}
+\email{palaniappan.muthuraman@upb.de}
 \affiliation{%
-  \institution{Institute for Clarity in Documentation}
-  \city{Dublin}
-  \state{Ohio}
-  \country{USA}
+  \institution{University of Paderborn}
+  \city{Paderborn}
+  \country{Germany}
 }
 
 \begin{abstract}
-This is the place for the abstract
+\textit{Context:}
+Static analysis is a fundamental technique in software engineeering used to analyse program code without executing it.
+It helps in finding security vulnerabilities, defects in the software system early in the development lifecycle.
+Despite its effectiveness, it still faces challenges related to scalability, precision impact, performance overhead, computational complexity.
+Traiditional static analysis techniques may generate false positives, struggle to scale for large code bases, and demand significant computational resources.
+Optimizing static analysis techniques aims to enhance analysis precision, improve scalability, reduce computational costs, and minimize false positives. \\
+\textit{Objective:}
+Our goal is to present a clear overview of the state-of-the-art static analysis optimization techniques and highlight emerging trends in static analysis approaches.
+This will help us identify where most of the current research efforts are concentrated, and pinpoint areas where future researches should be directed.\\
+\textit{Method:}
+We conducted a Systematic Literature Review (SLR) by analyzing \noofpapers research papers published in static analysis, program analysis, and software engineering venues over the past 15 years (January 2009 to October 2024).
+The primary objective of this review is to gather insights into the problems addressed by these approaches, the fundamental techniques employed, the static analysis sensitivities considered, and the potential for optimization. \\
+\textit{Result:}
+\todo{Write the results at the end} \\
+\textit{Conclusion:}
+\todo{Write what has been done and what is been lacking for the futire research to be taken care of}
 \end{abstract}
 
 \maketitle
 \input{content/background.tex}
+\input{content/methodology.tex}
+\input{content/Graphs.tex}
 
-% \bibliographystyle{ACM-Reference-Format}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{bibliography}
 
 \end{document}
 \endinput
