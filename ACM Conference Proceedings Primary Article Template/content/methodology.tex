@@ -1,5 +1,12 @@
 \section{Methodology for the SLR}
-For this SLR, we followed the guidelines provided by Kitchenham \cite{kitchenham2004procedures}
+For this SLR, we followed the guidelines provided by Kitchenham \cite{kitchenham2004procedures}. Figure \ref{fig:slr-overview} presents the protocol that we have designed to conduct the SLR.
+\begin{enumerate}
+    \item Firstly, we formulate the research questions that guides this SLR, and further identify which information to be extracted from the literature.
+    \item Nextn, we defined the search keywords aimed at retrieving the broadest possible set of relevant publications within the scope of the SLR.
+    \item To limit our studies on highly relevant papers, we apply exclusion criteria to filter out publications of likely interest.
+    \item Finally we perform a lightweight backward-snowballing on the selected publications. The resulting set of studies are referred to as the primary publications.
+\end{enumerate}
+
 
 \subsection{Research Questions}
 
@@ -68,7 +75,7 @@ The search terms we used were quite broad, resulting in an exhaustive list of pu
 \subsubsection{Primary publications selection}
 Table \ref{tab:summary_slr} summarizes the results of the search process. For each paper, we first reviewed the title and keywords to determine its relevance to our use case. If the relevance was unclear, we proceeded to read the abstract. If the abstract was still insufficient to make a decision, we skimmed the paper to assess its suitability.
 \todo{Usually here we should discuss how many reviewers did read the paper, and how did you overcome the inconsistencies the results?}
-In the end, we got \noofpapers papers in total.
+In the end, we got \primarypapers papers in total.
 
 \subsubsection{Backward snowballing}
 To ensure the completeness of our study and to capture relevant works not identified through our initial search terms, we conducted a lightweight backward snowballing process, performed only once.
@@ -90,15 +97,23 @@ Our initial search term aimed for broader coverage, while snowballing allowed us
     Source                         & IEEE & ACM  & Springer & Google Scholar & Total \\
     \midrule
     Search Results                 & 5561 & 3195 & 3980     & 1000           & 13736 \\
-    After Reviewing Title/Keywords & 44   & 136  & 13       & 43             & 317   \\
+    Script verification (keywords) & 225  & 450  & 45       & 97             & 817   \\
+    After Reviewing Title          & 125   & 136  & 13       & 43             & 317   \\
     After Reading Abstracts        & 117  & 30   & 22       & 2              & 171   \\
     After Skimming                 & 72   & 22   & 3        & 20             & 117   \\
     After Final Discussion         &      &      &          &                & 96    \\
     Backward snowballing           &      &      &          &                & 28    \\
-    Total                          &      &      &          &                & 124    \\ 
+    Total                          &      &      &          &                & 124   \\ 
     \bottomrule
     \end{tabular}
     \caption{Summary of the Primary Publications Selection Process}
     \label{tab:summary_slr}
 \end{table}
+
+\subsubsection{Primary publication Selection}
+In this section, we present the final selection results of the primary publications, as summarized in Table \ref{tab:summary_slr}.
+The first row (search results) shows statistics on the papers retrieved using the keywords defined in the previous section. Through this repositories search, we collect metadata such as paper title, abstracts and additional relevant information.
+We introduced a second filtering step, due to the inconsistent and often flawed results of the "advanced" search feature of the search repositories, where the search results are oftern inaccurate resulting in the set of irrelevant and noisy results. 
+After performing the second step (represented in row 2), the number of potential relevant papers are significantly reduced.
+
     

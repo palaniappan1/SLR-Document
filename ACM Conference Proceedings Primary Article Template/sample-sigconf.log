@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.17)  28 APR 2025 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.17)  7 MAY 2025 12:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -884,37 +884,36 @@ LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
  (./content/background.tex
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 1.
-) (./content/methodology.tex
+ [1.1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_afusau.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]) (./content/methodology.tex [2.2]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 6.
+(Font)              scaled to size 9.0pt on input line 13.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 10.
- [1.1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_afusau.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
+(Font)              scaled to size 9.0pt on input line 17.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 22.
+(Font)              scaled to size 9.0pt on input line 29.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 30.
+(Font)              scaled to size 9.0pt on input line 37.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 41.
+(Font)              scaled to size 8.0pt on input line 48.
 
 
 pdfTeX warning: pdflatex (file ./figures/SLR.drawio.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/SLR.drawio.pdf, id=53, 1032.9792pt x 180.675pt>
+<figures/SLR.drawio.pdf, id=100, 1032.9792pt x 180.675pt>
 File: figures/SLR.drawio.pdf Graphic file (type pdf)
 <use figures/SLR.drawio.pdf>
-Package pdftex.def Info: figures/SLR.drawio.pdf  used on input line 47.
+Package pdftex.def Info: figures/SLR.drawio.pdf  used on input line 54.
 (pdftex.def)             Requested size: 430.00462pt x 75.2103pt.
 
-Class acmart Warning: A possible image without description on input line 50.
+Class acmart Warning: A possible image without description on input line 57.
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 53.
+(Font)              scaled to size 7.3pt on input line 60.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 53.
-[2.2 <./figures/SLR.drawio.pdf>]) (./content/Graphs.tex [3.3]) (./sample-sigconf.bbl
+(Font)              scaled to size 5.5pt on input line 60.
+[3.3] [4.4 <./figures/SLR.drawio.pdf>]) (./content/Graphs.tex) (./sample-sigconf.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 7.0pt on input line 43.
-)
+ [5.5])
 
 Class acmart Warning: Some images may lack descriptions.
 
@@ -928,27 +927,27 @@ Class acmart Warning: CCS concepts are mandatory for papers over two pages.
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [4.4] (./sample-sigconf.aux)
+) [6.6] (./sample-sigconf.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `sample-sigconf.out' has not changed.
-(rerunfilecheck)             Checksum: A4AFB5541C49CD308A4DFB6A75AABEDB;881.
+(rerunfilecheck)             Checksum: 03BADFAFE42503AA9A373E5C681FFE24;1757.
  ) 
 Here is how much of TeX's memory you used:
- 22686 strings out of 474116
- 364640 string characters out of 5743682
- 1943187 words of memory out of 5000000
- 44137 multiletter control sequences out of 15000+600000
- 717730 words of font info for 312 fonts, out of 8000000 for 9000
+ 22808 strings out of 474116
+ 367378 string characters out of 5743682
+ 1945187 words of memory out of 5000000
+ 44182 multiletter control sequences out of 15000+600000
+ 723204 words of font info for 349 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 90i,12n,131p,1269b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,131p,1269b,696s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb>
-Output written on sample-sigconf.pdf (4 pages, 422650 bytes).
+Output written on sample-sigconf.pdf (6 pages, 440917 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 92238 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 92262 words of extra memory for PDF output out of 106986 (max. 10000000)
 

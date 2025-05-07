@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{3}
+\begin{thebibliography}{16}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,11 +36,78 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
+\bibitem[Arzt et~al\mbox{.}(2014)]%
+        {arzt2014flowdroid}
+\bibfield{author}{\bibinfo{person}{Steven Arzt}, \bibinfo{person}{Siegfried Rasthofer}, \bibinfo{person}{Christian Fritz}, \bibinfo{person}{Eric Bodden}, \bibinfo{person}{Alexandre Bartel}, \bibinfo{person}{Jacques Klein}, \bibinfo{person}{Yves Le~Traon}, \bibinfo{person}{Damien Octeau}, {and} \bibinfo{person}{Patrick McDaniel}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Flowdroid: Precise context, flow, field, object-sensitive and lifecycle-aware taint analysis for android apps}.
+\newblock \bibinfo{journal}{\emph{ACM sigplan notices}} \bibinfo{volume}{49}, \bibinfo{number}{6} (\bibinfo{year}{2014}), \bibinfo{pages}{259--269}.
+\newblock
+
+
+\bibitem[Bodik and Gupta(1997)]%
+        {bodik1997partial}
+\bibfield{author}{\bibinfo{person}{Rastislav Bodik} {and} \bibinfo{person}{Rajiv Gupta}.} \bibinfo{year}{1997}\natexlab{}.
+\newblock \showarticletitle{Partial dead code elimination using slicing transformations}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM SIGPLAN 1997 conference on Programming language design and implementation}}. \bibinfo{pages}{159--170}.
+\newblock
+
+
+\bibitem[Choi et~al\mbox{.}(1999)]%
+        {choi1999escape}
+\bibfield{author}{\bibinfo{person}{Jong-Deok Choi}, \bibinfo{person}{Manish Gupta}, \bibinfo{person}{Mauricio Serrano}, \bibinfo{person}{Vugranam~C Sreedhar}, {and} \bibinfo{person}{Sam Midkiff}.} \bibinfo{year}{1999}\natexlab{}.
+\newblock \showarticletitle{Escape analysis for Java}.
+\newblock \bibinfo{journal}{\emph{Acm Sigplan Notices}} \bibinfo{volume}{34}, \bibinfo{number}{10} (\bibinfo{year}{1999}), \bibinfo{pages}{1--19}.
+\newblock
+
+
+\bibitem[Evans and Larochelle(2002)]%
+        {bufferoverflow}
+\bibfield{author}{\bibinfo{person}{David Evans} {and} \bibinfo{person}{David Larochelle}.} \bibinfo{year}{2002}\natexlab{}.
+\newblock \showarticletitle{Improving security using extensible lightweight static analysis}.
+\newblock \bibinfo{journal}{\emph{IEEE software}} \bibinfo{volume}{19}, \bibinfo{number}{1} (\bibinfo{year}{2002}), \bibinfo{pages}{42--51}.
+\newblock
+
+
+\bibitem[Huang et~al\mbox{.}(2015)]%
+        {huang2015scalable}
+\bibfield{author}{\bibinfo{person}{Wei Huang}, \bibinfo{person}{Yao Dong}, \bibinfo{person}{Ana Milanova}, {and} \bibinfo{person}{Julian Dolby}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Scalable and precise taint analysis for android}. In \bibinfo{booktitle}{\emph{Proceedings of the 2015 International Symposium on Software Testing and Analysis}}. \bibinfo{pages}{106--117}.
+\newblock
+
+
 \bibitem[Kitchenham(2004)]%
         {kitchenham2004procedures}
 \bibfield{author}{\bibinfo{person}{Barbara Kitchenham}.} \bibinfo{year}{2004}\natexlab{}.
 \newblock \showarticletitle{Procedures for performing systematic reviews}.
 \newblock \bibinfo{journal}{\emph{Keele, UK, Keele University}} \bibinfo{volume}{33}, \bibinfo{number}{2004} (\bibinfo{year}{2004}), \bibinfo{pages}{1--26}.
+\newblock
+
+
+\bibitem[Knoop et~al\mbox{.}(1994)]%
+        {knoop1994partial}
+\bibfield{author}{\bibinfo{person}{Jens Knoop}, \bibinfo{person}{Oliver R{\"u}thing}, {and} \bibinfo{person}{Bernhard Steffen}.} \bibinfo{year}{1994}\natexlab{}.
+\newblock \showarticletitle{Partial dead code elimination}.
+\newblock \bibinfo{journal}{\emph{ACM Sigplan Notices}} \bibinfo{volume}{29}, \bibinfo{number}{6} (\bibinfo{year}{1994}), \bibinfo{pages}{147--158}.
+\newblock
+
+
+\bibitem[Le and Soffa(2008)]%
+        {le2008marple}
+\bibfield{author}{\bibinfo{person}{Wei Le} {and} \bibinfo{person}{Mary~Lou Soffa}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Marple: a demand-driven path-sensitive buffer overflow detector}. In \bibinfo{booktitle}{\emph{Proceedings of the 16th ACM SIGSOFT International Symposium on Foundations of software engineering}}. \bibinfo{pages}{272--282}.
+\newblock
+
+
+\bibitem[Lerch et~al\mbox{.}(2014)]%
+        {lerch2014flowtwist}
+\bibfield{author}{\bibinfo{person}{Johannes Lerch}, \bibinfo{person}{Ben Hermann}, \bibinfo{person}{Eric Bodden}, {and} \bibinfo{person}{Mira Mezini}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{FlowTwist: efficient context-sensitive inside-out taint analysis for large codebases}. In \bibinfo{booktitle}{\emph{Proceedings of the 22nd ACM SIGSOFT international symposium on foundations of software engineering}}. \bibinfo{pages}{98--108}.
+\newblock
+
+
+\bibitem[Lhot{\'a}k and Hendren(2003)]%
+        {lhotak2003scaling}
+\bibfield{author}{\bibinfo{person}{Ond{\v{r}}ej Lhot{\'a}k} {and} \bibinfo{person}{Laurie Hendren}.} \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Scaling Java points-to analysis using Spark}. In \bibinfo{booktitle}{\emph{International conference on compiler construction}}. Springer, \bibinfo{pages}{153--169}.
 \newblock
 
 
@@ -57,6 +124,36 @@
 \bibfield{author}{\bibinfo{person}{Jingbo Lu}, \bibinfo{person}{Dongjie He}, {and} \bibinfo{person}{Jingling Xue}.} \bibinfo{year}{2021}\natexlab{}.
 \newblock \showarticletitle{Eagle: CFL-reachability-based precision-preserving acceleration of object-sensitive pointer analysis with partial context sensitivity}.
 \newblock \bibinfo{journal}{\emph{ACM Transactions on Software Engineering and Methodology (TOSEM)}} \bibinfo{volume}{30}, \bibinfo{number}{4} (\bibinfo{year}{2021}), \bibinfo{pages}{1--46}.
+\newblock
+
+
+\bibitem[Muchnick(1997)]%
+        {muchnick1997advanced}
+\bibfield{author}{\bibinfo{person}{Steven Muchnick}.} \bibinfo{year}{1997}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Advanced compiler design implementation}}.
+\newblock \bibinfo{publisher}{Morgan kaufmann}.
+\newblock
+
+
+\bibitem[Tripp et~al\mbox{.}(2009)]%
+        {tripp2009taj}
+\bibfield{author}{\bibinfo{person}{Omer Tripp}, \bibinfo{person}{Marco Pistoia}, \bibinfo{person}{Stephen~J Fink}, \bibinfo{person}{Manu Sridharan}, {and} \bibinfo{person}{Omri Weisman}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{TAJ: effective taint analysis of web applications}.
+\newblock \bibinfo{journal}{\emph{ACM Sigplan Notices}} \bibinfo{volume}{44}, \bibinfo{number}{6} (\bibinfo{year}{2009}), \bibinfo{pages}{87--97}.
+\newblock
+
+
+\bibitem[Weimer and Necula(2004)]%
+        {weimer2004finding}
+\bibfield{author}{\bibinfo{person}{Westley Weimer} {and} \bibinfo{person}{George~C Necula}.} \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Finding and preventing run-time error handling mistakes}. In \bibinfo{booktitle}{\emph{Proceedings of the 19th annual ACM SIGPLAN Conference on Object-oriented programming, systems, languages, and applications}}. \bibinfo{pages}{419--431}.
+\newblock
+
+
+\bibitem[Xie et~al\mbox{.}(2003)]%
+        {xie2003archer}
+\bibfield{author}{\bibinfo{person}{Yichen Xie}, \bibinfo{person}{Andy Chou}, {and} \bibinfo{person}{Dawson Engler}.} \bibinfo{year}{2003}\natexlab{}.
+\newblock \showarticletitle{Archer: using symbolic, path-sensitive analysis to detect memory access errors}. In \bibinfo{booktitle}{\emph{Proceedings of the 9th European software engineering conference held jointly with 11th ACM SIGSOFT international symposium on Foundations of software engineering}}. \bibinfo{pages}{327--336}.
 \newblock
 
 

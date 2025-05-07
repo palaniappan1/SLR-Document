@@ -1,2 +1,30 @@
 \section{Background}
-Here comes the background needed for the paper
+With the advancement of software development techniques, modern software systems have become more than collection of sourcecode. They represent intricate networks of interdepent components focusing on performance constraints, 
+memory management rules, concurrency, and security expectations. As complexity of these systems increases, so does the necessity of uncovering bugs, finding performance bottlenecks, and violations of security and privacy policies.
+Static analysis has emerged  as a fundamental technique in this context, enabling the examination of code without execution to predict program behavior, ensure correctness, and optimize performance.
+Static analysis isn't one monolithic tool. It encompasses a collection of specialized techniques, each characterized by distinct objectives, input requirements, and analysis goals.
+To illustrate the practical significance of static analysis in real-world applications, consider the scenario of a software engineer tasked with developing a critical real-time system.
+Despite extensive testing efforts, certain execution paths, such as rare thread interleaving or subtle memory errors may remain undetected. Static analysis addresses this limitation by examining all potential execution paths without requiring program execution.
+Thus, enabling the early detection of bugs and security problems in safety-critical systems. 
+
+We can categorize static analysis techniques based on their underlying principles and intended functionality.
+
+\subsection{Understanding by Input: What do we need to know?}
+For static analysis to begin, it requires certain essential inputs. One is control-flow information, which maps out the program's execution structure, such as which function calls which other functions, and the possible execution path through the code.
+Another is data-flow information, which keeps track of how data flows through the program, such as who writes to a variable, who reads them, and the sequence of these operations.
+Espeically with the advancements in objec-oriented programming, understanding the method behavior often depends on the runtime of the objects. For static analysis to handle this, it requires additional information such as type and object details.
+In programs with limited dynamic behavior, virtual calls can often directlt linked to their respective target methods. However, as dynamic features become more prevalent in object-oriented languages, resolving the actual method being called becomes increasingly challening. 
+This is where Points-to-analysis \cite{lhotak2003scaling} plays a crucial role - it helps determine the relationships between the program variables and objects they may refer to, enabling more accurate call resolution.
+It often serves as a foundational brick for many static analyses.
+
+\subsection{Security First: Guarding the Gates}
+One group of static analysis techniques focus on software security. These methods are designed to detect potential vulnerabilities by systematically analyzing the codebase for threats.
+One notable example of the security based techniques is Taint Analysis \cite{arzt2014flowdroid,huang2015scalable,lerch2014flowtwist,tripp2009taj}, which tracks the propagation of untrusted or user-controlled inputs throughout the program. By identifying whether such inputs reach sensitive operations - such as database queries, or system commands.
+Taint analysis helps prevent security breaches, such as injection attacks. 
+Buffer overflow analysis \cite{bufferoverflow,le2008marple,xie2003archer} ensures that the program doesn't write past the allocated memory - a common cause of runtime exceptions and potential security vulnerabilities.
+Resource Leak analysis \cite{weimer2004finding} focuses on the proper management of the system resoures.It verifies that all acquired resources - such as file handles, locks, or network sockets, are eventually released after use. This analysis helps in reduction of the performance degradation due to resource exhasution.
+
+\subsection{Performance-Hungry: Trimming the Fat}
+This set of techniques targets performance optimizations. Loop Optimizations \cite{muchnick1997advanced} and redundant load elimination aim to identify and eliminate inefficiencies in how loops are constructed and how values are accessed from memory.
+Escape analysis \cite{choi1999escape} determines whether an object is confined to a method; if so, it suggests allocating the object on the stack rather than heap, which is faster, safer and more efficient.
+Deadcode Elimintation \cite{bodik1997partial,knoop1994partial} analyses the code to detect portions of code that never gets executed under any inputs, allowing them to be removed safely.

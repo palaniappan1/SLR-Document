@@ -12,44 +12,60 @@ Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 3 entries,
+Warning--empty publisher in bodik1997partial
+Warning--empty address in bodik1997partial
+Warning--empty publisher in huang2015scalable
+Warning--empty address in huang2015scalable
+Warning--empty publisher in le2008marple
+Warning--empty address in le2008marple
+Warning--empty publisher in lerch2014flowtwist
+Warning--empty address in lerch2014flowtwist
+Warning--empty publisher in lhotak2003scaling
+Warning--empty address in lhotak2003scaling
+Warning--empty address in muchnick1997advanced
+Warning--empty publisher in weimer2004finding
+Warning--empty address in weimer2004finding
+Warning--empty publisher in xie2003archer
+Warning--empty address in xie2003archer
+You've used 16 entries,
             6056 wiz_defined-function locations,
-            1503 strings with 18423 characters,
-and the built_in function-call counts, 3041 in all, are:
-= -- 455
-> -- 65
+            1583 strings with 21084 characters,
+and the built_in function-call counts, 18854 in all, are:
+= -- 2470
+> -- 550
 < -- 0
-+ -- 18
-- -- 23
-* -- 181
-:= -- 287
-add.period$ -- 16
-call.type$ -- 3
-change.case$ -- 17
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 259
-empty$ -- 185
-format.name$ -- 27
-if$ -- 763
++ -- 183
+- -- 199
+* -- 1251
+:= -- 1773
+add.period$ -- 82
+call.type$ -- 16
+change.case$ -- 113
+chr.to.int$ -- 16
+cite$ -- 31
+duplicate$ -- 1707
+empty$ -- 1198
+format.name$ -- 251
+if$ -- 4686
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 8
-newline$ -- 63
-num.names$ -- 21
-pop$ -- 89
+missing$ -- 65
+newline$ -- 160
+num.names$ -- 112
+pop$ -- 691
 preamble$ -- 1
-purify$ -- 41
+purify$ -- 241
 quote$ -- 0
-skip$ -- 89
+skip$ -- 621
 stack$ -- 0
-substring$ -- 220
-swap$ -- 21
+substring$ -- 1426
+swap$ -- 168
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 62
-warning$ -- 0
-while$ -- 23
+type$ -- 367
+warning$ -- 15
+while$ -- 122
 width$ -- 0
-write$ -- 95
+write$ -- 336
+(There were 15 warnings)
