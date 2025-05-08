@@ -10,21 +10,43 @@ Thus, enabling the early detection of bugs and security problems in safety-criti
 We can categorize static analysis techniques based on their underlying principles and intended functionality.
 
 \subsection{Understanding by Input: What do we need to know?}
-For static analysis to begin, it requires certain essential inputs. One is control-flow information, which maps out the program's execution structure, such as which function calls which other functions, and the possible execution path through the code.
-Another is data-flow information, which keeps track of how data flows through the program, such as who writes to a variable, who reads them, and the sequence of these operations.
+For static analysis to begin, it requires certain essential inputs. One is \textbf{control-flow information}, which maps out the program's execution structure, such as which function calls which other functions, and the possible execution path through the code.
+Another is \textbf{data-flow information}, which keeps track of how data flows through the program, such as who writes to a variable, who reads them, and the sequence of these operations.
 Espeically with the advancements in objec-oriented programming, understanding the method behavior often depends on the runtime of the objects. For static analysis to handle this, it requires additional information such as type and object details.
 In programs with limited dynamic behavior, virtual calls can often directlt linked to their respective target methods. However, as dynamic features become more prevalent in object-oriented languages, resolving the actual method being called becomes increasingly challening. 
-This is where Points-to-analysis \cite{lhotak2003scaling} plays a crucial role - it helps determine the relationships between the program variables and objects they may refer to, enabling more accurate call resolution.
+This is where \textbf{Points-to-analysis} \cite{lhotak2003scaling} plays a crucial role - it helps determine the relationships between the program variables and objects they may refer to, enabling more accurate call resolution.
 It often serves as a foundational brick for many static analyses.
 
 \subsection{Security First: Guarding the Gates}
 One group of static analysis techniques focus on software security. These methods are designed to detect potential vulnerabilities by systematically analyzing the codebase for threats.
-One notable example of the security based techniques is Taint Analysis \cite{arzt2014flowdroid,huang2015scalable,lerch2014flowtwist,tripp2009taj}, which tracks the propagation of untrusted or user-controlled inputs throughout the program. By identifying whether such inputs reach sensitive operations - such as database queries, or system commands.
+One notable example of the security based techniques is \textbf{Taint Analysis} \cite{arzt2014flowdroid,huang2015scalable,lerch2014flowtwist,tripp2009taj}, which tracks the propagation of untrusted or user-controlled inputs throughout the program. By identifying whether such inputs reach sensitive operations - such as database queries, or system commands.
 Taint analysis helps prevent security breaches, such as injection attacks. 
-Buffer overflow analysis \cite{bufferoverflow,le2008marple,xie2003archer} ensures that the program doesn't write past the allocated memory - a common cause of runtime exceptions and potential security vulnerabilities.
-Resource Leak analysis \cite{weimer2004finding} focuses on the proper management of the system resoures.It verifies that all acquired resources - such as file handles, locks, or network sockets, are eventually released after use. This analysis helps in reduction of the performance degradation due to resource exhasution.
+\textbf{Buffer overflow analysis} \cite{bufferoverflow,le2008marple,xie2003archer} ensures that the program doesn't write past the allocated memory - a common cause of runtime exceptions and potential security vulnerabilities.
+\textbf{Resource Leak analysis} \cite{weimer2004finding} focuses on the proper management of the system resoures.It verifies that all acquired resources - such as file handles, locks, or network sockets, are eventually released after use. This analysis helps in reduction of the performance degradation due to resource exhasution.
+
+\subsection{Verifiers of Truth: Ensuring Program Correctness}
+These static analysis techniques prioritize correctness about all else - speed, size , runtime, performance are secondary concerns. 
+Their sole objective is to establish the truth about the program behavior.
+\textbf{Abstract Interpretation} \cite{cousot1996abstract} over-approximates the program behavior ensures soundness while striving to maintain scalability albeit precision.
+\textbf{Symbolic Execution} \cite{king1975new} explores all possible execution paths by using symbolic inputs instead of concrete values. 
+It generates logical constraints that must hold for each path to be taken.
+This technique can also be used to verify whether certain properties may be violated, making it effective for detecting potential errors or proving program properties \cite{baldoni2018survey}.
 
 \subsection{Performance-Hungry: Trimming the Fat}
-This set of techniques targets performance optimizations. Loop Optimizations \cite{muchnick1997advanced} and redundant load elimination aim to identify and eliminate inefficiencies in how loops are constructed and how values are accessed from memory.
-Escape analysis \cite{choi1999escape} determines whether an object is confined to a method; if so, it suggests allocating the object on the stack rather than heap, which is faster, safer and more efficient.
-Deadcode Elimintation \cite{bodik1997partial,knoop1994partial} analyses the code to detect portions of code that never gets executed under any inputs, allowing them to be removed safely.
+This set of techniques targets performance optimizations. \textbf{Loop Optimizations} \cite{muchnick1997advanced} and redundant load elimination aim to identify and eliminate inefficiencies in how loops are constructed and how values are accessed from memory.
+\textbf{Escape analysis} \cite{choi1999escape} determines whether an object is confined to a method; if so, it suggests allocating the object on the stack rather than heap, which is faster, safer and more efficient.
+\textbf{Deadcode Elimintation} \cite{bodik1997partial,knoop1994partial} analyses the code to detect portions of code that never gets executed under any inputs, allowing them to be removed safely.
+
+\subsection{Concurrency and Beyond: Taming Parallelism}
+As software increasingly targets multi-core and distributed environments, concurrency analysis becomes vital. 
+Static analysis techniques such as \textbf{LockSet analysis} \cite{engler2003racerx}, tracks how threads acquired and release locks to detect potential race conditions.
+Some researchers have explored parallelizing the pointer analysis by distributing the workload across multiple threads \cite{liu2019rethinking,su2014parallel}.
+Moreover, advanced models like \textbf{Pushdown Systems} \cite{spath2019context} are employed to model the recursive procedural calls enabling more precise interprocedural analysis.
+
+
+\subsection{A Shared Landscape: Interdependecies}
+Static analysis does not operate in isolation. Many type of analyses are build upon others - for example, taint analysis relies on data-flow analysis which itself depends on control-flow graphs.
+Rather than being a simple hierarchy of independent tools, static analyses form a layered and interdependent ecosystem, where different analyses support and complement each other.
+These ecosystem can be understood along two key dimensions: the goals of the analysis and the inputs they require. 
+The first dimension addresses what the analysis is trying to achieve be it performance, optimization, correctness, or another objective.
+The second dinmension focuses on the analysis prerequisites - what program properties it must understand to function or reason effectively.

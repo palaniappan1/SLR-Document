@@ -23,49 +23,51 @@ Warning--empty address in lerch2014flowtwist
 Warning--empty publisher in lhotak2003scaling
 Warning--empty address in lhotak2003scaling
 Warning--empty address in muchnick1997advanced
+Warning--empty publisher in su2014parallel
+Warning--empty address in su2014parallel
 Warning--empty publisher in weimer2004finding
 Warning--empty address in weimer2004finding
 Warning--empty publisher in xie2003archer
 Warning--empty address in xie2003archer
-You've used 16 entries,
+You've used 23 entries,
             6056 wiz_defined-function locations,
-            1583 strings with 21084 characters,
-and the built_in function-call counts, 18854 in all, are:
-= -- 2470
-> -- 550
+            1625 strings with 22156 characters,
+and the built_in function-call counts, 27168 in all, are:
+= -- 3767
+> -- 755
 < -- 0
-+ -- 183
-- -- 199
-* -- 1251
-:= -- 1773
-add.period$ -- 82
-call.type$ -- 16
-change.case$ -- 113
-chr.to.int$ -- 16
-cite$ -- 31
-duplicate$ -- 1707
-empty$ -- 1198
-format.name$ -- 251
-if$ -- 4686
++ -- 252
+- -- 269
+* -- 1786
+:= -- 2501
+add.period$ -- 117
+call.type$ -- 23
+change.case$ -- 159
+chr.to.int$ -- 23
+cite$ -- 40
+duplicate$ -- 2424
+empty$ -- 1708
+format.name$ -- 341
+if$ -- 6887
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 65
-newline$ -- 160
-num.names$ -- 112
-pop$ -- 691
+missing$ -- 94
+newline$ -- 215
+num.names$ -- 161
+pop$ -- 952
 preamble$ -- 1
-purify$ -- 241
+purify$ -- 343
 quote$ -- 0
-skip$ -- 621
+skip$ -- 863
 stack$ -- 0
-substring$ -- 1426
-swap$ -- 168
+substring$ -- 2088
+swap$ -- 241
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 367
-warning$ -- 15
-while$ -- 122
+type$ -- 493
+warning$ -- 17
+while$ -- 176
 width$ -- 0
-write$ -- 336
-(There were 15 warnings)
+write$ -- 469
+(There were 17 warnings)
