@@ -19,21 +19,24 @@
 }
 
 \begin{abstract}
-\textit{Context:}
+\textbf{\textit{Context:}}
 Static analysis is a fundamental technique in software engineeering used to analyse program code without executing it.
 It helps in finding security vulnerabilities, defects in the software system early in the development lifecycle.
 Despite its effectiveness, it still faces challenges related to scalability, precision impact, performance overhead, computational complexity.
-Traiditional static analysis techniques may generate false positives, struggle to scale for large code bases, and demand significant computational resources.
-Optimizing static analysis techniques aims to enhance analysis precision, improve scalability, reduce computational costs, and minimize false positives. \\
-\textit{Objective:}
-Our goal is to present a clear overview of the state-of-the-art static analysis optimization techniques and highlight emerging trends in static analysis approaches.
-This will help us identify where most of the current research efforts are concentrated, and pinpoint areas where future researches should be directed.\\
-\textit{Method:}
+Traditional static analysis techniques may generate false positives, struggle to scale for large code bases, and demand significant computational resources.
+Prior research has demonstrated that the performance of the static analyses can be significantly enhanced through various optimization techniques, such as staging, sparse analysis, and parallelization.\\
+\textbf{\textit{Objective:}}
+However, these optimizations were implemented as one-off optimizations, applied to a single static analysis in a single analysis context.
+Despite the extensive work on static analysis, there remains a lack of a systematic assessment of the various static analysis optimizations techniques,their potential combinations, and the conditions under which combinations are effective. 
+The objective is to provide a comprehensive overview of the state-of-the-art static analysis optimizations, examining their individual and joint impact on analysis outcomes.
+By analyzing these optimizations both in isolation and in combination, we aim to assess their influence on key performance metrics such as precision, recall, and runtime. 
+Furthermore, this study seeks to identify which classes of program benefit most from specific optimizations or combinations of them, thereby offering guidance on the applicability of these optimization techniques in practical analysis scenarios.\\
+\textbf{\textit{Method:}}
 We conducted a Systematic Literature Review (SLR) by analyzing \noofpapers research papers published in static analysis, program analysis, and software engineering venues over the past 15 years (January 2009 to October 2024).
 The primary objective of this review is to gather insights into the problems addressed by these approaches, the fundamental techniques employed, the static analysis sensitivities considered, and the potential for optimization. \\
-\textit{Result:}
+\textbf{\textit{Result:}}
 \todo{Write the results at the end} \\
-\textit{Conclusion:}
+\textbf{\textit{Conclusion:}}
 \todo{Write what has been done and what is been lacking for the futire research to be taken care of}
 \end{abstract}
 
