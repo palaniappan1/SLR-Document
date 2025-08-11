@@ -1,0 +1,29 @@
+\section{Introduction}
+With the introduction of the planned EU Cyber Resilience Act, software developers will soon be required to adopt software assurance techniques to ensure the security and reliability of their software products.
+Static analysis is a cornerstone of modern software engineering, examining the code without executing it.
+By systematically analysing the code base, static analysis can detect a wide range of security vulnerabilities, bugs, and code smells early in the development process.
+This proactive approach not only enhances code quality but also reduces the cost and effort associated with fixing issues later in the software lifecycle.
+Static analyses techniques needs to process millions of lines of code, which result in substatial computational overhead.
+Moreover, increasing the precision of the analysis - while reducing false positives - typically comes at the cost of longer runtimes and higher resource computation \cite{emanuelsson2008comparative}.
+Traditional static analyses approaches often struggle to meet all three objectives simultaneously.
+
+To address these challenges and to improve performance, researchers have proposed numerous optimization techniques, 
+For example, a \textbf{staged approach}, where the analysis is divided in successive phases,
+each one becoming progressively more precise and computationally expensive \cite{bodden2009verifying,bodden2012partially,jeong2017datadriven,li2018precision,lu2019precision,sinha2010staged,smaragdakis2014introspective}.
+The core idea is to include early stages that perform efficient pre-analyses, whose results help avoid unnecessary computations in the later, most costly phases.
+\textbf{Sparse Analysis} which restricts computations to only the relevant portions of the program by leveraging value-flow graphs \cite{choi1991automatic,madsen2014sparse,ramalingam2002sparse,spaeth2017ideal}.
+While traditional static analyses often operate over the entire program's control flow graph, sparse analysis focuses solely on code segment relevant to the specific analysis at hand, utilizing a value-flow graph composed of the def-use chains.
+Prior studies have shown that these optimizations can significanlty enhance performance, reduce analysis time, and in some cases even improve precision. 
+However, these optimizations are often implemented as one-off solutions tailored to a specific static analysis and a particular context.
+
+The existing literatute is rich with individual optimization techniques; however, there is a lack of a systematic understanding regarding their compared effectiveness, their potential synergies, and the conditions under which they perform best - whether in isolation or in combination.
+When combined, it is crucial to identify which combinations yield the best results, as one optimization can sometimes impede or counteract another.
+
+This study seeks to fill this gap by conducting a \textbf{Systematic Literature Review} of 124 research papers published between Januray 2009 and October 2024 across leading venues in static analysis, program analysis. and software engineering.
+Throug this SLR, we aim to:
+
+\begin{enumerate}
+    \item Catalog and classify state-of-the-art static analysis optimization techniques.
+    \item Examine the interplay between the different optimizations and identify effective combinations.
+    \item Determine which classes of programs benefit most from specific optimizations.
+\end{enumerate}
