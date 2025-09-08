@@ -1,0 +1,33 @@
+\subsection{Pointer Analysis}
+
+Pointer analysis is a fundamental and widely applied static analysis technique that aims to determine the possible objects or memory locations that the pointer variables in a program may reference during execution.
+Among the earliest and most influential contributions in this area is the work of Andersen in 1994, known as Andersen's Analysis, which is flow-, context-, and field-insensitive \cite{andersen1994program}. 
+This analysis also referred to as a subset based analysis, introduces subset constraints to model the relationships between pointer variables and the memory locations they can potentially point to. 
+Following Andersen's work, Steensgaard proposed in 1996 a unification-based pointer analysis that operates with almost linear time complexity \cite{steensgaard1996points}.
+Unlike Andersen's approach, Steensgard's analysis merges points-to-set wherever any aliasing between two pointer variables, leading to a coarser approximation of the points-to information. 
+As a result, Steensgaard analysis sacrifices precision for scalability, making it significanlty faster and less precise than Andersen's analysis \cite{shapiro1997effects}.
+\todo{Should write the difference between context, object, field, flow sensitivity here??.}
+\todo{Should write about k-site sensitivity??.}
+Since both Andersen's and Steensgaard's analyses are field-, context-, and flow-insensitive, many subsequent researchers sought to improve precision by introducing different forms of sensitivity.
+In 1994, Emami et al., \cite{emami1994context} defined a pointer analysis that, while still flow-insensitive, was extended to be context-sensitive. 
+Their formulation distinguished between ''may'' and ''must'' points-to relations, thereby enabling strong updates.
+Later in 2002, Milanova et al., \cite{milanova2002parameterized} introduced object-sensitive pointer analysis as a novel form of context sensitivity tailored for flow-insensitive points-to-analysis for Java.
+Through empirical evaluation, they demonstrated that object-sensitivity provides greater precision than the traditional call-site sensitivity in the context of object-oriented programs.
+In 2011, Smaragdakis et al., \cite{smaragdakis2011pick} proposed type sensitivity, a different sensitivity approach that leverages the type information as the distinguishing context.
+Subsequently, in 2013, Kastrinis et al., \cite{kastrinis2013hybrid} proposes a hybrid form of context sensitivity that selectively combines both object-sensitivity and call-site sensitivity.
+Their experimental research showed that this selection hybrid approach yields higher precision than a naive, non-selective combination of the two sensitivities.
+
+Following the foundational works in pointer analysis, researchers have continually sought to enhance both the precision and efficiency of these analyses.
+Starting from 2009, significant strides have been made in optimizing pointer analysis techniques.
+In 2009, Lundberg et al., \cite{lundberg2009fast} introduced a context- and flow-sensitive pointer analysis approach that significanlty improves upon traditional methods in terms of both speed and precision.
+Their analysis employed a graph-based Static Single Assignment (SSA) form, which extends the conventional SSA form \cite{ssa} to effectively represent points-to information.
+In this representation, each method is modeled as a graph where nodes correspond to operations within the method, and edges denote data dependencies between these operations.
+By leveraging SSA form, their analysis maintains strict flow-sensitivity.
+They also introduced "this-sensitivity". This technique analyses methods seperately for each abstract object reaching the implicit this variable, thereby distinguishing between different calling contexts.
+Empirical evaluations demonstrated that their 1-this-sensitivity analysis is considerably faster than the traditional context-sensitive and object-sensitivity analyses.
+
+In 2011, Lhotak et al., \cite{lhotak2011points} proposed a strong update analysis combining best of both worlds: the efficiency of flow-insensitive analysis and the precision of flow-sensitive analysis through strong updates.
+The key insight is the use of strong updates which can be applied when the dereferenced points-to set is a singleton. 
+In their approach, singleton points-to sets are tracked using a flow-sensitive analysis, while non-singleton points-to sets are handled using a flow-insensitive analysis.
+This hybrid strategy allows flow-sensitive analysis to refine the precision of flow-insensitive points-to information, while the flow-insensitive analysis provides a robust fallback in cases where flow-sensitive tracking would be expensive.
+The analysis leverages SSA form which is effective to perform strong updates. Empirical results demonstrated that this hybrid method produces more precise points-to sets compared to purely flow-insensitive or purely flow-sensitive approaches.
