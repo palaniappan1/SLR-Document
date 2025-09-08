@@ -19,12 +19,33 @@ Their experimental research showed that this selection hybrid approach yields hi
 
 Following the foundational works in pointer analysis, researchers have continually sought to enhance both the precision and efficiency of these analyses.
 Starting from 2009, significant strides have been made in optimizing pointer analysis techniques.
+
+CFL reachability formulations gives very precise points to results but are computationally expensive \cite{xu2009scaling}. 
+In 2009, Xu et al., \cite{xu2009scaling} introduced a novel staging approach which does cheap, conservative, context-sensitive pre analysis, that helps in identifying pairs of variables that cannot alias in the given calling context.
+Using this pre-analysis information, the main CFL-reachability based pointer analysis is able to prune infeasible CFL paths and thus improve both efficiency and precision.
+
+In 2009, Hardekopf et al., \cite{hardekopf2009semi} introduces a flow-sensitive, context-insensitive pointer analysis that combines two key innovations: semi-sparse analysis and novel use of BDD's (Binary Decision Diagrams) to efficiently represent large points-to sets.
+Their approach employs a partial static single assignment form, which allows for a sparse analysis on top-level variables (those whose addresses are not taken), while performing a standard iterative dataflow algorithm for the remaining variables.
+Additionally, the use of BDDs enables compact representation of points-to information \cite{bryant1986graph} significantly reducing both memory usage and runtime compared to traditional flow-sensitive analyses.
+Empirical results reported in their work demonstrate that this analysis scales to large programs while maintaining high precision.
+
 In 2009, Lundberg et al., \cite{lundberg2009fast} introduced a context- and flow-sensitive pointer analysis approach that significanlty improves upon traditional methods in terms of both speed and precision.
 Their analysis employed a graph-based Static Single Assignment (SSA) form, which extends the conventional SSA form \cite{ssa} to effectively represent points-to information.
 In this representation, each method is modeled as a graph where nodes correspond to operations within the method, and edges denote data dependencies between these operations.
 By leveraging SSA form, their analysis maintains strict flow-sensitivity.
 They also introduced "this-sensitivity". This technique analyses methods seperately for each abstract object reaching the implicit this variable, thereby distinguishing between different calling contexts.
 Empirical evaluations demonstrated that their 1-this-sensitivity analysis is considerably faster than the traditional context-sensitive and object-sensitivity analyses.
+
+In 2010, Mendez-Lojo et al., \cite{mendez2010parallel} presented the first parallel implementation of Andersen's inclusion based points-to analysis, developed in Java. 
+They showed that the inclusion-based points-to analysis can be expressed entirely in terms of graph rewriting rules.
+Their central insight of their approach is that, during the rewriting phase, two active nodes can be processed parallel if do not interfere with each other.
+Thus, identifying non-interfering active nodes becomes the key to unlock parallelism.
+They leveraged the Galois system \cite{galois} to implement their parallel points-to analysis.
+The implementation employed two main data structures (i) BDD's with hash table for storing points-to edges, and (ii) sparse bit vector based on linked list for storing other edges. 
+The authors compared their experimental results with those reported by Hardekopf's 'cite{hardekopf2009semi}.
+However, the results are not directly comparable, since their implementation was in Java, while Hardekopf and Lin’s was written in C++.
+
+
 
 In 2011, Lhotak et al., \cite{lhotak2011points} proposed a strong update analysis combining best of both worlds: the efficiency of flow-insensitive analysis and the precision of flow-sensitive analysis through strong updates.
 The key insight is the use of strong updates which can be applied when the dereferenced points-to set is a singleton. 
