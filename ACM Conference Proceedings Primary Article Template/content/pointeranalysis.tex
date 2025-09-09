@@ -45,10 +45,28 @@ The implementation employed two main data structures (i) BDD's with hash table f
 The authors compared their experimental results with those reported by Hardekopf's 'cite{hardekopf2009semi}.
 However, the results are not directly comparable, since their implementation was in Java, while Hardekopf and Lin’s was written in C++.
 
+\todo{Should we weite about using parallel client analyses alongside with parallel points to analyses?? Parallel Reachability and Escape Analyses Paper}
 
+In 2011, Li et al., \cite{li2011boosting} introduced a novel approach that reformulates flow-sensitive pointer analysis as a general graph reachability problem over a Value Flow Graph (VFG).
+In a VFG, nodes represents both memory objects and pointer variables, while directed edges captures value flows between them.
+Unlike static representations, the VFG is iteratively and dynamically refined by introducing indirect value flows, until a fixed point is reached.
+This method simplifies the traditionally complex process of tracking precise points-to-relations.
+As a result, the analysis not only computes precise points-to information but also dervies inverse points-to information (which pointers may reference a given memory object).
 
 In 2011, Lhotak et al., \cite{lhotak2011points} proposed a strong update analysis combining best of both worlds: the efficiency of flow-insensitive analysis and the precision of flow-sensitive analysis through strong updates.
 The key insight is the use of strong updates which can be applied when the dereferenced points-to set is a singleton. 
 In their approach, singleton points-to sets are tracked using a flow-sensitive analysis, while non-singleton points-to sets are handled using a flow-insensitive analysis.
 This hybrid strategy allows flow-sensitive analysis to refine the precision of flow-insensitive points-to information, while the flow-insensitive analysis provides a robust fallback in cases where flow-sensitive tracking would be expensive.
 The analysis leverages SSA form which is effective to perform strong updates. Empirical results demonstrated that this hybrid method produces more precise points-to sets compared to purely flow-insensitive or purely flow-sensitive approaches.
+
+Despite the advancements, flow-sensitive pointer analysis has struggled to scale to large, real-world programs with millions of lines of code \cite{hardekopf2011flow}.
+To address these challenge, Hardekopf et al., \cite{hardekopf2011flow} introduced a new flow-sensitive analysis that leverages a sparse program representation.
+This sparse representation is not built directly; instead, it is derived from a staged process involving a pre-analysis followed by the main flow-sensitive analysis.
+The Pre-analysis computes the conservative def-use chains, which helps the primary flow-sensitive analysis to perform sparsely.
+
+
+Points-to analysis is typically performed by constructing a constraint graph of pointer variables and dynamically updating it, propagating more and more points-to information until a fixed point is reached. \cite{nasre2012exploiting}
+Traditionally, the inherent structure of this constraint graph has not been exploited so far. 
+In 2012, Nasre et al., \cite{nasre2012exploiting} introduced a new approach that exploits the structure of the constraint graph to optimize inclusion-based points to analysis.
+Their work introduced two key : dynamic pointer equivalence and dominating pointers.
+They demonstrated that their algorithm is both sound and precise while achieving significant performance improvement over the inclusion-based points-to analysis.
