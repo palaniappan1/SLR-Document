@@ -1,0 +1,48 @@
+\subsection{Incremental}
+
+Traditional data-flow analyses often require recomputation of the entire analysis for every modification in the codebase, regardless of the size or scope of the change.
+This approach becomes highly time-consuming when dealing with large codebases.
+To address this limitation, researchers have proposed various incremental analysis techniques that efficiently update analysis results in response to code changes, thus avoiding unnecessary recomputation.
+\todo{Should talk about reviser updating incrementally for both phases of IDE?}
+In 2014, Arzt et al., introduced Reviser, a tool designed to incrementally update IDE-based data-flow analyses \cite{arzt2014reviser}.
+Reviser follows a clean-and propagate approach: for each affected node it clears the computed information and recompute the information using all of the node's predecessors.
+The algorithm identifies changes in the code and their affected predecessors or successors by computing structural differences between Control Flow Graphs (CFG's).
+\todo{Should have this -> Reviser also replaces the standard IDE Solver with one capable of handling incremental updates?}
+Experimental results demonstrated that Reviser produces the same results as a full analysis while saving 80\% of time required for a full recomputation.
+Notably, Reviser also recomputes the complete call graph.
+
+While Reviser focuses on incremental data-flow analysis in IDE's, In 2017, Sathyanathan et al., \cite{sathyanathan2017incremental} proposed a framework for incremental whole program optimization.
+Their framework uses a simple and fast checksum technique to detect changes in the codebase.
+Unl;ike Reviser, which targets IDE-based data-flow analyses, this framework is applied directly within the C/C++ compiler.
+The primary goal here is to reduce recompilation time rather than update data-flow information
+
+\todo{Add An incremental points-to analysis with CFL-reachability here}
+
+Another important area for incremental pointer analysis is pointer analysis which is central to most interprocedural analyses.
+While there has been significant work on parallelizing pointer analysis, relatively little work has focused on making it incremental. \todo{cite}
+In 2019, Liu et al., \cite{liu2019rethinking} proposed the first efficient and precise incremental and parallel pointer analysis for Java programs.
+This approach detects code modifications by comparing the SSA-based IR of the old and new program.
+This algorithm constructs call graphs on the fly and supports efficient parallelelization within each fixed-point iteration.
+It leverages a fundamental transitivity property of Andersen's analysis and it is context sensitive, path sensitive, and flow insensitive.
+Experimental results shows that this achieves more than 200X speedups over other existing approaches and also 2-5 times faster than the whole program pointer analysis.
+
+Existing techniques typically support either incremental or demand-driven analysis, but not both, and they often impose restrictions such as requiring finite abstract domains.
+In 2021, Stein et al., \cite{stein2022demanded} introduced a framework that unifies incremental and demand-driven analysis for any arbitraty abstract domain, even for those with infinite domains and widening operators.
+Their approach is based on a data structure called Demanded Abstract Interpretation Graph (DAIG), which treats program edits, client queries uniformly.
+By capturing dependencies between statements, abstract states, and intermediate computations, DAIG enables efficient reuse of previously computed results while preserving soundness.
+
+
+Most recently, In 2024, Krishna et al., \cite{krishna2024fly} developed a dynamic algorithm for handling the addition and deletion of lines in the source code with a guarantee that each such modification takes
+linear time in the worst case. Every edge insertion can be handled by reusing the already constructed component graph, 
+while deletions- which typically requires global re-evaluation of the entire graph - are optimized using techniques from dynamic undirected connectivity and sparsification.
+Although, construction of the initial component graph requires $O(n^2)$ time due to dense graph, subsequent updates can start from a preliminary component graph.
+
+These analyses optimize different aspects of incremental computation, and many of them can be complementary when combined - for example, 
+pairing parallel fixed-point computation with dynamic graph updates can further improve efficiency. At the same time, paralelization must be integrated with care, as it can interfere with determinstic guarantees required by incremental solvers.
+
+
+
+
+
+
+
