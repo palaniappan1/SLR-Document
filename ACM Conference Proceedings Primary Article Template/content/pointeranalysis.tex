@@ -70,3 +70,10 @@ Traditionally, the inherent structure of this constraint graph has not been expl
 In 2012, Nasre et al., \cite{nasre2012exploiting} introduced a new approach that exploits the structure of the constraint graph to optimize inclusion-based points to analysis.
 Their work introduced two key : dynamic pointer equivalence and dominating pointers.
 They demonstrated that their algorithm is both sound and precise while achieving significant performance improvement over the inclusion-based points-to analysis.
+
+Most existing pointer analysis techniques perform whole program points-to analysis which can improve precision but often comes at the cost of efficiency.
+In 2012, Shang et al., \cite{shang2012demand} introduced Dynsum, a novel approach that performs fully on-demand, context-sensitive points-to analysis leveraging CFL-reachability summaries.
+The key innovation of this technique lies in performing field-sensitive, context-insensitve partial points-to analysis for individual methods, summarizing their local points-to relations and reusing these summaries in the same or different contexts.
+
+Traditional flow-sensitive pointer analysis suffer from the ability to not do strong updates, which is a sever restriction for Java programs.
+And they also use points-to graphs to store the points-to information.
