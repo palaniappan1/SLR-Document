@@ -1,0 +1,39 @@
+\subsection{Taint Analysis}
+
+The Interprocedural Finite Distributive Subset (IFDS) problem is a fixed-point, flow- and context-sensitive data flow analysis problem. 
+In IFDS, data flow is reduced to a reachability problem over the exploded supergraph. The IFDS algorithm is both memory- and compute-intensive, with a worst-case complexity of
+$O(|E| . |D|^2)$ in space and $O(|E| . |D|^3)$ in time where E denotes the number of edges in the supergraph and D denotes the set of data flow facts in the program \cite{reps1995precise}.
+
+A prominent application of the IFDS framework is taint analysis, which tracks the flow of sensitive data through programs.
+
+In 2014, Arzt et al. introduced FlowDroid \cite{arzt2014flowdroid}, a precise, context-, flow-, field-, and object-sensitive static taint analysis tool for Android applications. FlowDroid constructs an interprocedural control-flow graph and leverages the IFDS framework to propagate taints efficiently. 
+While FlowDroid remains a state-of-the-art tool widely used in research and security analysis, it has been reported to suffer from poor scalability: 
+analyzing large Android applications consumes excessive memory and time due to its high precision. \cite{li2021scaling}
+
+\todo{ Add contents for
+    1. A scalable, flow-and-context-sensitive taint analysis of android applications.pdf
+    2. Boosting the Performance of Multi-Solver IFDS Algorithms with Flow-Sensitivity Optimizations.pdf
+}
+
+In 2017, Grech et al., proposed PTaint \cite{grech2017p}, showing that existing points-to analysis implementations can be reused—almost without modification—to compute information flow, thereby unifying points-to and information-flow analysis. 
+However, PTaint is flow-insensitive, which may introduces false positives.
+
+Since IFDS solvers typically require substantial memory—sometimes exceeding 100 GB of RAM—several works have sought to improve scalability \cite{li2021scaling}:
+
+In 2019, Choi et al., \cite{choi2019scalable} introduced a taint analysis tool STAR which is context- and flow-sensitive and supports multi-source taint analysis.
+STAR uses a novel summarization technique which they call as Symbolic Summarization 
+
+In 2019, He et al., \cite{he2019performance} proposed SparseIFDS, a sparse alternative to traditional IFDS. Instead of pre-constructing full control-flow graphs, SparseDroid constructs sparse control-flow graphs on demand for each data flow fact, allowing direct propagation to relevant use sites. This approach reduces overhead and achieves an average 22× speedup over FlowDroid while also lowering memory usage.
+
+In 2021, Li et al., \cite{li2021scaling} introduced DiskDroid, A disk-assisted IFDS solver that reduces memory requirements. Instead of storing all path edges, DiskDroid memorizes only frequently accessed (“hot”) edges using a Hot Edge Selector. Non-hot edges are recomputed on demand, and inactive edges are swapped to disk once memory usage crosses a threshold. This optimization allows DiskDroid to analyze Android apps with only 10 GB of memory, compared to the 128 GB required by FlowDroid, while incurring only a modest overhead.
+
+In 2021, Arzt et al., \cite{arzt2021sustainable} introduced CleanDroid, An efficient, method-level garbage collector for IFDS solvers. CleanDroid reclaims memory by discarding intermediate data flow facts (edges and taint abstractions) that are no longer needed. Integrated into FlowDroid, CleanDroid reduces memory consumption by 63\% on average without sacrificing precision. However, its method-level granularity is conservative, leaving many non-live edges uncollected and occasionally requiring reprocessing of previously collected edges.
+
+In 2023, He et al., developed Fine-Grained Path Edge Collection, to address CleanDroid’s limitations, They proposed a data-fact-level garbage collection algorithm (FPC). Unlike CleanDroid, which operates at the method level, FPC selectively collects non-live path edges at a finer granularity, reducing both memory consumption and analysis time. On average, FPC outperforms CleanDroid by a factor of 1.7× in runtime.
+
+In 2023, Gui et al., \cite{gui2023merge} introduced MergeDroid which targeted at reducing redundant computation in IFDS analyses. Traditional IFDS repeatedly propagates equivalent value flows, and its context-insensitive activation statements lead to false positives. MergeDroid merges equivalent value flows linked to the same abstraction, eliminating redundancy and improving precision. It demonstrates an average 9× performance improvement compared to traditional approaches.
+
+In 2024, Li et al., 2024 \cite{li2024boosting} proposed IDEDroid, a novel approach for field-sensitive data flow analysis within the IFDS/IDE framework. Traditional field sensitivity requires the use of access paths, which generate a large number of data flow facts and hinder scalability. IDEDroid reinterprets access-path generation as a context-free language (CFL) problem, encoded as an IDE problem, thereby allowing propagation only of the base variable. This substantially reduces the number of facts generated and improves scalability.
+
+
+When considering which optimizations can be combined, pairing SparseDroid with garbage collection approaches (CleanDroid or FPC) is unnecessary. SparseDroid’s sparse control-flow graph already ensures that only live edges are present, so adding GC would introduce computational overhead without yielding additional efficiency gains. Similarly, combining SparseDroid with DiskDroid is redundant, since SparseDroid already incorporates a caching mechanism for sparse CFGs. On the other hand, SparseDroid and MergeDroid complement each other well: SparseDroid reduces the number of propagation paths, while MergeDroid eliminates redundancy within the propagated facts.
