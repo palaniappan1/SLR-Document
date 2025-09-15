@@ -1,0 +1,48 @@
+\section*{IFDS Framework Developments}
+
+
+The Interprocedural Finite Distributive Subset (IFDS) problem is a fixed-point, flow- and context-sensitive data flow analysis problem. 
+In IFDS, data flow is reduced to a reachability problem over the exploded supergraph. The IFDS algorithm is both memory- and compute-intensive, with a worst-case complexity of
+$O(|E| . |D|^2)$ in space and $O(|E| . |D|^3)$ in time where E denotes the number of edges in the supergraph and D denotes the set of data flow facts in the program \cite{reps1995precise}.
+
+In 2014, Arzt and Bodden introduced Reviser, an approach for automatically and efficiently updating static-analysis results for a broad class of inter-procedural, flow-sensitive, context-sensitive data-flow analyses in response to incremental changes in application code. It extends the IDE solver to support processing incremental program changes. Whenever a change is made, it follows a clear-and-propagate strategy: for each affected node, it first clears the analysis information computed and then re-propagates the information from all the node’s predecessors. It showed a performance improvement of up to 80\% in comparison to full recomputation, while maintaining accuracy.
+
+In 2015, Lerch at al., introduced Access-Path Abstraction, a novel approach that enhances field-sensitive data-flow analysis by allowing for unbounded access paths while maintaining efficiency and precision. This method represents access paths at control-flow merge points through their base variable, reconstructing full paths on demand where required, removing the restriction to a fixed maximal length. By using abstract summaries (e.g., $a.*$ for all access paths starting with the base $a$, such as $a.g$), it reduces the requirement for $k$-limiting. Using access-path abstraction that only analyzes if concrete access paths were used instead of abstract summaries ensures precision and correctness. The results show that the proposed approach scales as well as a field-based approach and has the same precision as a field-sensitive approach.
+
+In 2019, He et al., introduced SparseDroid, a sparse alternative to traditional IFDS. Instead of pre-constructing full control-flow graphs, SparseDroid constructs sparse control-flow graphs on demand for each data flow fact, allowing direct propagation to relevant use sites. This approach reduces overhead and achieves an average $22\times$ speedup over FlowDroid while also lowering memory usage when evaluating with the FossDroid dataset \cite{fossdroid}.
+
+In 2019, Choi et al., introduced STAR, a taint analysis tool that is both context- and flow-sensitive and supports multi-source taint analysis. STAR employs a novel symbolic summarization technique and efficient state propagation methods to enhance performance and scalability. Experimental results show that STAR achieves significant improvements in runtime: escape-based pruning, symbolic summarization, access-based localization, and bypassing showed $7\%$, $4\%$, $1\%$, and $2\%$ timeout rates reduction, respectively. In terms of memory reduction, it showed up to $4.86\times$--$32.64\times$ improvements for half of the apps, while the other half showed up to $4.86\times$ improvements.
+
+In 2020, Zhang et al., introduced Coyote, a framework for bottom-up data flow analysis that enhances parallelism by relaxing calling dependencies among functions. Traditional bottom-up analyses are limited by the need for sequential analysis of caller-callee relationships, which restricts function-level parallelism. Coyote partitions the analysis tasks of functions into sub-tasks that can be pipelined and executed in parallel, leading to significant speedups in analyzing C/C++ programs for null-dereference bugs and taint issues. Coyote achieved significant speedups of $2\times$--$3\times$ over conventional parallel designs, particularly in large codebases like MySQL, where it reduced analysis time from over 10 hours to under 4 hours.
+
+In 2021, Li et al., introduced DiskDroid, a disk-assisted IFDS solver that reduces memory requirements. Instead of storing all path edges, DiskDroid memorizes only frequently accessed (“hot”) edges using a \emph{Hot Edge Selector}. Non-hot edges are recomputed on demand, and inactive edges are swapped to disk once memory usage crosses a threshold. This optimization allows DiskDroid to analyze Android apps with only \textbf{10 GB of memory}, compared to the \textbf{128 GB} required by FlowDroid, while incurring only a modest overhead.
+
+In 2023, Gui et al., introduced MergeDroid which targeted at reducing redundant computation in IFDS analyses. Traditional IFDS repeatedly propagates equivalent value flows, and its context-insensitive activation statements lead to false positives. MergeDroid merges equivalent value flows linked to the same abstraction, eliminating redundancy and improving precision. It demonstrates an average \textbf{$9\times$ performance improvement} compared to traditional approaches.
+
+In 2023, He et al., developed \textbf{SparseIFDS}, a sparse alternative to traditional IFDS. Instead of pre-constructing full control-flow graphs, SparseDroid constructs \textbf{sparse control-flow graphs on demand} for each data flow fact, allowing direct propagation to relevant use sites. This approach reduces overhead and achieves an average \textbf{$22\times$ speedup} over FlowDroid while also lowering memory usage.
+
+In 2023, Goharshady et al., introduced a novel approach to interprocedural data-flow analysis within the IFDS framework, focusing on the on-demand setting where queries are processed individually. The authors propose a new approach that utilizes both treewidth and a novel graph sparsity parameter, treedepth, to enhance efficiency. Their algorithm achieves linear preprocessing time and constant query time, significantly outperforming classical IFDS methods in practical applications.
+
+In 2024, Li et al., proposed IDEDroid,  a novel approach for field-sensitive data flow analysis within the IFDS/IDE framework. Traditional field sensitivity requires the use of access paths, which generate a large number of data flow facts and hinder scalability. IDEDroid reinterprets access-path generation as a \textbf{context-free language (CFL) problem}, encoded as an \textbf{IDE problem}, thereby allowing propagation only of the base variable. This substantially reduces the number of facts generated and improves scalability.
+
+In 2024, Li et al., introduced SADroid for a multi-solver IFDS framework reduces the number of data-flow facts generated during analysis while preserving flow sensitivity and soundness. They propose a flow-sensitivity optimization technique that reduces the number of data-flow facts by aggressively removing active points. Experimental results show that SADroid achieves a maximum speedup of $17.89\times$ and memory optimization of $9\times$ over FlowDroid.
+
+\section*{Summary of IFDS Framework Developments}
+
+Over the years, the IFDS framework has seen significant advancements aimed at improving scalability, precision, memory efficiency, and performance.
+Early work focused on efficiently updating analysis results after code changes, avoiding full recomputation.
+Different works addressed the challenge of field sensitivity by reducing the number of facts via abstraction, CFL-based encoding, and removing active points.
+Some successfully introduced sparse propagation, constructing or using sparse control-flow graphs and focusing on definition-use chains to reduce overhead.
+Parallel analysis and merging equivalent value flows were introduced to make the analysis faster and to avoid redundant computation.
+Some leveraged graph-theoretic parameters (treewidth, treedepth) for faster query processing.
+
+\section*{Future Directions and Combinations}
+
+\emph{SparseDroid} can be combined with \emph{disk-assisted storage} (DiskDroid) and \emph{redundancy elimination} (MergeDroid) to further reduce memory and computation.
+\emph{Coyote} can be layered on top of most approaches that do not require strict sequential dependencies.
+\emph{SADroid} can be combined with sparse and field-sensitive approaches.
+
+However, \emph{Disk-assisted approaches} may not synergize well with highly parallel or pipelined methods due to I/O bottlenecks.
+\emph{Symbolic summarization} (STAR) and \emph{CFL-based encoding} (IDEDroid) may not be directly compatible due to differing representations of data-flow facts.
+\emph{Incremental update} (Reviser) may conflict with methods that require global recomputation or fundamentally change the propagation model (e.g., some forms of pipelining or symbolic summarization).
+
