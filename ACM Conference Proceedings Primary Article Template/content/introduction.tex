@@ -1,5 +1,5 @@
 \section{Introduction}
-With the introduction of the planned EU Cyber Resilience Act, software developers will soon be required to adopt software assurance techniques to ensure the security and reliability of their software products.
+With the introduction of the planned EU Cyber Resilience Act \cite{car2022eu}, software developers will soon be required to adopt software assurance techniques to ensure the security and reliability of their software products.
 Static analysis is a cornerstone of modern software engineering, examining the code without executing it.
 By systematically analysing the code base, static analysis can detect a wide range of security vulnerabilities, bugs, and code smells early in the development process.
 This proactive approach not only enhances code quality but also reduces the cost and effort associated with fixing issues later in the software lifecycle.
@@ -9,7 +9,7 @@ Traditional static analyses approaches often struggle to meet all three objectiv
 
 To address these challenges and to improve performance, researchers have proposed numerous optimization techniques, 
 For example, a \textbf{staged approach}, where the analysis is divided in successive phases,
-each one becoming progressively more precise and computationally expensive \cite{bodden2009verifying,bodden2012partially,jeong2017datadriven,li2018precision,lu2019precision,sinha2010staged,smaragdakis2014introspective}.
+each one becoming progressively more precise and computationally expensive stages\cite{bodden2009verifying,bodden2012partially,jeong2017datadriven,li2018precision,lu2019precision,sinha2010staged,smaragdakis2014introspective}.
 The core idea is to include early stages that perform efficient pre-analyses, whose results help avoid unnecessary computations in the later, most costly phases.
 \textbf{Sparse Analysis} which restricts computations to only the relevant portions of the program by leveraging value-flow graphs \cite{choi1991automatic,madsen2014sparse,ramalingam2002sparse,spaeth2017ideal}.
 While traditional static analyses often operate over the entire program's control flow graph, sparse analysis focuses solely on code segment relevant to the specific analysis at hand, utilizing a value-flow graph composed of the def-use chains.
