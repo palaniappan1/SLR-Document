@@ -42,10 +42,10 @@ Their central insight of their approach is that, during the rewriting phase, two
 Thus, identifying non-interfering active nodes becomes the key to unlock parallelism.
 They leveraged the Galois system \cite{galois} to implement their parallel points-to analysis.
 The implementation employed two main data structures (i) BDD's with hash table for storing points-to edges, and (ii) sparse bit vector based on linked list for storing other edges. 
-The authors compared their experimental results with those reported by Hardekopf's 'cite{hardekopf2009semi}.
+The authors compared their experimental results with those reported by Hardekopf's \cite{hardekopf2009semi}.
 However, the results are not directly comparable, since their implementation was in Java, while Hardekopf and Lin’s was written in C++.
 
-\todo{Should we weite about using parallel client analyses alongside with parallel points to analyses?? Parallel Reachability and Escape Analyses Paper}
+\todo{Should we write about using parallel client analyses alongside with parallel points to analyses?? Parallel Reachability and Escape Analyses Paper}
 
 In 2011, Li et al., \cite{li2011boosting} introduced a novel approach that reformulates flow-sensitive pointer analysis as a general graph reachability problem over a Value Flow Graph (VFG).
 In a VFG, nodes represents both memory objects and pointer variables, while directed edges captures value flows between them.
