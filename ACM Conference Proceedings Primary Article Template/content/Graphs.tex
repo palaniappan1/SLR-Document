@@ -7,7 +7,8 @@ There are 4 different widely used graph structures for them namely Control Flow 
 Graphs
 
 - **Flow-sensitive, context-sensitive, and object-sensitive information flow control based on program dependence graphs (Hammer et al., 2009):** 
-The Information Flow Control (IFC) is used to analyze a program for security leaks. Existing approaches are not precise enough, that means they report too many false alarms. Therefore in this paper they use program dependence graphs (PDG) for Java bytecode to implement IFC. Their approach is more precise and it is flow-, context and object-sensitive. One limit of their approach is that they can only deal with medium-sized programs (up to 100kLOC).
+The Information Flow Control (IFC) is used to analyze a program for security leaks. Existing approaches are not precise enough, that means they report too many false alarms. 
+Therefore in this paper they use program dependence graphs (PDG) for Java bytecode to implement IFC. Their approach is more precise and it is flow-, context and object-sensitive. One limit of their approach is that they can only deal with medium-sized programs (up to 100kLOC).
 
 - **Speeding up context-, object- and field-sensitive SDG generation (Graf, 2010):** In their presented approach they generate SDGs (System dependence graph) efficiently for Java. It is context-, field- and object-sensitive and is based on the WALA framework. They showed that their approach reduces time and memory and can improve precision. The technqical background is that the size of object trees can become large if the points-to analysis is less precise, so they can't be used in SDGs. In their paper they introduce object graphs, an extension of object tress. As a result they merge duplicate information to save space. 
 
