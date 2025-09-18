@@ -6,33 +6,33 @@ There are 4 different widely used graph structures for them namely Control Flow 
 
 Graphs
 
-- **Flow-sensitive, context-sensitive, and object-sensitive information flow control based on program dependence graphs (Hammer et al., 2009):** 
+- Flow-sensitive, context-sensitive, and object-sensitive information flow control based on program dependence graphs (Hammer et al., 2009):
 The Information Flow Control (IFC) is used to analyze a program for security leaks. Existing approaches are not precise enough, that means they report too many false alarms. Therefore in this paper 
 they use program dependence graphs (PDG) for Java bytecode to implement IFC. Their approach is more precise and it is flow-, context and object-sensitive. One limit of their approach is that 
 they can only deal with medium-sized programs (up to 100kLOC).
 
-- **Speeding up context-, object- and field-sensitive SDG generation (Graf, 2010):** In their presented approach they generate SDGs (System dependence graph) efficiently for Java. It is context-, 
+-  Speeding up context-, object- and field-sensitive SDG generation (Graf, 2010):  In their presented approach they generate SDGs (System dependence graph) efficiently for Java. It is context-, 
 field- and object-sensitive and is based on the WALA framework. They showed that their approach reduces time and memory and can improve precision. The technqical background is that the size of object trees 
 can become large if the points-to analysis is less precise, so they can't be used in SDGs. In their paper they introduce object graphs, an extension of object tress. As a result they merge duplicate information 
 to save space. 
 
-- **Quantitative Interprocedural Analysis (Chatterjee et al., 2015):** They present an efficient algorithm which can answer several static analysis questions, e.g. estimating the average energy consumption (cite).
+-  Quantitative Interprocedural Analysis (Chatterjee et al., 2015):  They present an efficient algorithm which can answer several static analysis questions, e.g. estimating the average energy consumption (cite).
 For that they need the ICFG and a positive weight function which determines for every transition a positive number which says how good, bad or neutral this transition (event) is. 
 After that their algorithm compares the good and bad events and determine whether a given threshold is reached in a run. As a result they can quantify the ICFG. Their algorithm is implemented in the Java soot framework 
 and can deal with recursion and is sound. But one limit is that they have not consider mulitple quantitative objectives yet but are aiming that in the future. (TODO: have they already done that and can we find improvements?)
 
-- **A Precise Framework for Source-Level Control-Flow Analysis (Riouak et al., 2021):** Their presented framework is called INTRACFG which constructs precise intraprocedrual CFGs. It is based on reference 
+-  A Precise Framework for Source-Level Control-Flow Analysis (Riouak et al., 2021):  Their presented framework is called INTRACFG which constructs precise intraprocedrual CFGs. It is based on reference 
 attribute grammers and enables the construction of CFGs which are independent of the shape and structure of the AST because other frameworks for constructing CFGs are usually depending from the structure of ASTs. 
 INTRACFG only connects AST nodes of interest in the CFG. Attribute grammers denote AST nodes with attributes, reference attribute grammers extend them: their values are references to other AST nodes (cite). 
 In their work they achieved to reduce the number of nodes and edges in the CFGs by over 30% compares to other framework. 
 
-- **Efficient Path-Sensitive Data-Dependence Analysis (Yao et al., 2021):** They present a path- and context-sensitive data-dependence analysis with the goal to solve the **aliasing-path-explosion problem**
+-  Efficient Path-Sensitive Data-Dependence Analysis (Yao et al., 2021):  They present a path- and context-sensitive data-dependence analysis with the goal to solve the  aliasing-path-explosion problem 
 via a sparse and demand-driven approach. The exisiting challenge for data-dependence analysis is the aliasing-path-explosion problem which means to tracks a large amount of aliases. Their approach summarizes 
 data dependence as symbolic and storeless value-flow graphs and they perform a demand-driven phase that resolves transitive data dependence over the graphs. The presented framework is called FALCON, a fused and 
 sparse approach for path-sensitive data-dependence analysis. First their approach computes storeless value-flow graphs, as a result no duplicated edges. Then this graph is used for data-dependencies in a 
 demand-driven way. By that a path- and context-sensitive def-use information is tracked on demand. It is more efficient because the data dependency can be figured out without points-to information 
 
-- **Path-Sensitive Sparse Analysis without Path Conditions (Shi et al., 2021) :** The sparse program analysis considers only necessary control flows but is still expensive for path-sensitive analysis (cite). 
+-  Path-Sensitive Sparse Analysis without Path Conditions (Shi et al., 2021) :  The sparse program analysis considers only necessary control flows but is still expensive for path-sensitive analysis (cite). 
 In this work the authors present Fusion, a fused approach to inter-procedurally path-sensitive sparse analysis (cite). They can determine the path feasiblity without knowing the path conditions, 
 this saves cost and time. In their approach the SMT solver works on the program data dependece graph. That's how they can determine path feasibility directly.
 They showed that they were able to detect a lot of bugs in mature open-source software with their approach,faster than two other state-of-art approaches. Fusion can analyze milliones of lines of code within a 
