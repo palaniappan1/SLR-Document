@@ -26,7 +26,7 @@ attribute grammers and enables the construction of CFGs which are independent of
 INTRACFG only connects AST nodes of interest in the CFG. Attribute grammers denote AST nodes with attributes, reference attribute grammers extend them: their values are references to other AST nodes (cite). 
 In their work they achieved to reduce the number of nodes and edges in the CFGs by over 30% compares to other framework. 
 
-- **Efficient Path-Sensitive Data-Dependence Analysis (Yao et al., 2021):** They present a path- and context-sensitive data-dependence analysis with the goal to solve the "aliasing-path-explosion problem" 
+- **Efficient Path-Sensitive Data-Dependence Analysis (Yao et al., 2021):** They present a path- and context-sensitive data-dependence analysis with the goal to solve the **aliasing-path-explosion problem**
 via a sparse and demand-driven approach. The exisiting challenge for data-dependence analysis is the aliasing-path-explosion problem which means to tracks a large amount of aliases. Their approach summarizes 
 data dependence as symbolic and storeless value-flow graphs and they perform a demand-driven phase that resolves transitive data dependence over the graphs. The presented framework is called FALCON, a fused and 
 sparse approach for path-sensitive data-dependence analysis. First their approach computes storeless value-flow graphs, as a result no duplicated edges. Then this graph is used for data-dependencies in a 
